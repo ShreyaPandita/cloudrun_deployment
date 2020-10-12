@@ -1,10 +1,10 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/cloudrun-demo/nodejssite:$SHORT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/cloudrundemo/nodejssite:$SHORT_SHA', '.']
 # Push the container image to Container Registry 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/cloudrun-demo/nodejssite:$SHORT_SHA']
+  args: ['push', 'gcr.io/cloudrundemo/nodejssite:$SHORT_SHA']
 # Deploy image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'cloudrun-demo', '--region=us-central1', '--platform=managed', '--image=gcr.io/cloudrun-demo/nodejssite:$SHORT_SHA', '--allow-unauthenticated']
+  args: ['beta', 'run', 'deploy', 'cloudrundemo', '--region=us-central1', '--platform=managed', '--image=gcr.io/cloudrundemo/nodejssite:$SHORT_SHA', '--allow-unauthenticated']
