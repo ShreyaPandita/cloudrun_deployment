@@ -7,4 +7,4 @@ steps:
   args: ['push', 'gcr.io/cicd-sp/nodejssite:$SHORT_SHA']
 # Deploy image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'cicd-sp', '--region=us-central1', '--platform=managed', '--image=gcr.io/cicd-sp/nodejssite:$SHORT_SHA']
+  args: ['beta', 'run', 'deploy', 'cicd-sp', '--region=us-central1', '--platform=managed', '--image=gcr.io/cicd-sp/nodejssite:$SHORT_SHA', '--allow-unauthenticated']
